@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Story from './Story';
+import Comment from './Comment';
 
 class Feed extends Component {
   constructor(props) {
@@ -7,6 +8,10 @@ class Feed extends Component {
     this.state = {
 
     }
+  }
+
+  _genFeed(propsObj) {
+    
   }
 
   //Destructuring assignment with different variable names
@@ -19,6 +24,14 @@ class Feed extends Component {
       unixDate: 1175714200,
       comments: 9030
     };
+
+    const commentProps = {
+      title: 'Behold the Comments',
+      points: 9039,
+      op: 'Shana',
+      unixDate: 1175714200,
+      text: "See also the blog.stackoverflow.com side of the partnership here:<p><a href=\"http://blog.stackoverflow.com/2011/08/facebook-stackoverflow/\" rel=\"nofollow\">http://blog.stackoverflow.com/2011/08/facebook-stackoverflow...</a><p>Basically, it's a siloed version of stackoverflow.com containing only the tags relevant to Facebook.  They're thinking about creating mini-sites for other major subdomains (see also <a href=\"http://meta.webapps.stackexchange.com/questions/913/is-this-site-not-running-as-well-as-it-deserves/915#915\" rel=\"nofollow\">http://meta.webapps.stackexchange.com/questions/913/is-this-...</a>)."
+    };
     return (
       <ul className="c-feed">
         <li><Story {...storyProps} /></li>
@@ -26,6 +39,11 @@ class Feed extends Component {
         <li><Story {...storyProps} /></li>
         <li><Story {...storyProps} /></li>
         <li><Story {...storyProps} /></li>
+        <li><Comment {...commentProps} /></li>
+        <li><Comment {...commentProps} /></li>
+        <li><Comment {...commentProps} /></li>
+        <li><Comment {...commentProps} /></li>
+        <li><Comment {...commentProps} /></li>
       </ul>
     )
   }

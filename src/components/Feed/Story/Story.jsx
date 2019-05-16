@@ -8,13 +8,18 @@ class Story extends PureComponent {
 
   render() {
     const { title, link, points, op, unixDate, comments } = this.props;
-    const dateObj = new Date(unixDate);
-    const date = dateObj.getDate();
-    //TODO: Inline List below title (border left for separator)
+    const date = new Date(unixDate * 1000).toLocaleDateString("en-US");
+    
     return (
-      <div>
-        <h3>{title}</h3>
-        <p>{points} points | {op} | {date} | {comments} comments | ({link}) </p>
+      <div className="c-story">
+        <h4 className="c-story__title">{title}</h4>
+        <ul className="c-story__row">
+          <li className="c-story__stats">{points} points</li>
+          <li className="c-story__stats">{op}</li>
+          <li className="c-story__stats">{date}</li>
+          <li className="c-story__stats">{comments} comments</li>
+          <li className="c-story__stats">({link})</li>
+        </ul>
       </div>
     )
   }
