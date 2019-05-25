@@ -19,7 +19,9 @@ class Comment extends PureComponent {
           <li className="c-comment__stats">{date}</li>
           <li className="c-comment__stats">comments</li>
         </ul>
-        <section className="c-comment__content">{text}</section>
+        <section className="c-comment__content"
+                 dangerouslySetInnerHTML={{__html:text}} >
+        </section>
       </div>
     )
   }

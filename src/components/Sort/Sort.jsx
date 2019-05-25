@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dropdown from '../util/dropdown';
 
 class Sort extends Component {
   constructor(props) {
@@ -9,9 +10,11 @@ class Sort extends Component {
   }
 
   render() {
+    const resultTypes = ['Stories', 'Comments', 'All'];
+
     return (
       <section className="c-sort">
-        <p>Search Stories by Popularity by All-time</p>
+        <span>Search</span> <Dropdown items={resultTypes} /> <span>by Popularity by All-time</span>
       </section>
     );
   }
