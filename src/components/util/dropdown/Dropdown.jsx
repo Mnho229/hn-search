@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export default class Dropdown extends Component {
   constructor(props) {
-    super(props)
-    this.activeRef = React.createRef();
+    super(props);
+    this.eleRef = React.createRef();
     this.state = {
       isActive: false,
-      currItem: 'Stories'
+      currItem: this.props.items[0]
     }
   }
 
@@ -29,7 +29,8 @@ export default class Dropdown extends Component {
     this.setState({
       currItem: e.target.getAttribute('data'),
       isActive: false
-    })
+    });
+    this.eleRef.current.blur();
   }
 
   render() {
@@ -50,7 +51,8 @@ export default class Dropdown extends Component {
       <div className="l-dropdown" 
            tabIndex='0'
            onFocus={this.__handleFocus} 
-           onBlur={this.__handleDefocus}>
+           onBlur={this.__handleDefocus}
+           ref={this.eleRef}>
         {this.state.currItem} &#9662;
         <ul className={`l-dropdown__menu ${activeMenu}`}>
           {menuItems}

@@ -11,10 +11,12 @@ class Sort extends Component {
 
   render() {
     const resultTypes = ['Stories', 'Comments', 'All'];
+    const popuOrDate = ['Popularity', 'Date'];
+    const timeRanges = ['All Time', 'Last 24h', 'Past Week', 'Past Month', 'Past Year', 'Custom Range'];
 
     return (
       <section className="c-sort">
-        <span>Search</span> <Dropdown items={resultTypes} /> <span>by Popularity by All-time</span>
+        <span>Search</span><Dropdown items={resultTypes} /><span> by </span><Dropdown items={popuOrDate} /><span> by </span><Dropdown items={timeRanges} />
       </section>
     );
   }
