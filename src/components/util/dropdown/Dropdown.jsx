@@ -10,22 +10,22 @@ export default class Dropdown extends Component {
     }
   }
 
-  __toggleActive = (dClass) => {
+  _toggleActive = (dClass) => {
     return this.state.isActive ? dClass : '';
   }
 
-  __handleFocus = () => {
+  _handleFocus = () => {
     this.setState({
       isActive: true
     });
   }
-  __handleDefocus = () => {
+  _handleDefocus = () => {
     this.setState({
       isActive: false,
     })
   }
 
-  __setMenuItem = (e) => {
+  _setMenuItem = (e) => {
     this.setState({
       currItem: e.target.getAttribute('data'),
       isActive: false
@@ -34,13 +34,13 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    let activeMenu = this.__toggleActive('h-show');
+    let activeMenu = this._toggleActive('h-show');
 
     const menuItems = this.props.items.map( (value, index) => {
       return (
         <li key={index}
             className="l-dropdown__menuItem"
-            onClick={this.__setMenuItem}
+            onClick={this._setMenuItem}
             data={value}>
           {value}
         </li>
@@ -50,8 +50,8 @@ export default class Dropdown extends Component {
     return (
       <div className="l-dropdown" 
            tabIndex='0'
-           onFocus={this.__handleFocus} 
-           onBlur={this.__handleDefocus}
+           onFocus={this._handleFocus} 
+           onBlur={this._handleDefocus}
            ref={this.eleRef}>
         {this.state.currItem} &#9662;
         <ul className={`l-dropdown__menu ${activeMenu}`}>
