@@ -7,23 +7,27 @@ class Feed extends Component {
     super(props);
     this.state = {
 
-    }
+    };
   }
 
-  _genFeed(propsObj) {
-    
+  _genStory(propsObj, counter) {
+    return (
+      <li key={counter}> <Story {...propsObj} /> </li>
+    )
+  }
+  _genComments(propsObj, counter) {
+    return (
+      <li key={counter}> <Comment {...propsObj} /> </li>
+    )
   }
 
   //Destructuring assignment with different variable names
   render() {
-    const storyProps = {
-      title: 'Behold the Clone',
-      link: 'https://www.google.com',
-      points: 9029,
-      op: 'Shara',
-      unixDate: 1175714200,
-      comments: 9030
-    };
+    let itemKey = -1;
+    const articles = this.props.list.map( (value, index) => {
+      itemKey++;
+      return this._genStory(value, itemKey);
+    });
 
     const commentProps = {
       title: 'Behold the Comments',
@@ -34,11 +38,7 @@ class Feed extends Component {
     };
     return (
       <ul className="c-feed">
-        <li><Story {...storyProps} /></li>
-        <li><Story {...storyProps} /></li>
-        <li><Story {...storyProps} /></li>
-        <li><Story {...storyProps} /></li>
-        <li><Story {...storyProps} /></li>
+        { articles }
         <li><Comment {...commentProps} /></li>
         <li><Comment {...commentProps} /></li>
         <li><Comment {...commentProps} /></li>

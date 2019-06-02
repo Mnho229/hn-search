@@ -19,7 +19,9 @@ class Main extends React.Component {
   }
   componentDidMount() {
     this._fetchData(this.state.sortOptions).then(data => {
-      console.log(data);
+      this.setState({
+        feedList: data.hits,
+      });
     });
   }
 
@@ -59,7 +61,7 @@ class Main extends React.Component {
   }
 
   //TODO: Test API CALLS
-  async _fetchData( {type, sortBy, dateRange, query} ) {
+  _fetchData = async ( {type, sortBy, dateRange, query} ) => {
     const typeFilter = this._determineType(type);
     const dateFilter = this._determineRange(dateRange);
     const searchFilter = typeof query !== "undefined" && query !== '' ? `&query=${query}` : '';
@@ -70,17 +72,14 @@ class Main extends React.Component {
     let res = await fetch(url);
     return res.json();
   }
-  //KNOW: FIRST TO GRAB IDs()
-  //TODO: Stories/Comments/All
-  //TODO: Popularity(Score) or Date
-  //TODO: Date Range
 
   render() {
+    console.log(this.state.feedList);
     return (
       <div className="Main">
         <Nav />
         <Sort />
-        <Feed />
+        <Feed list={this.state.feedList} />
       </div>
     );
   }
