@@ -26,10 +26,11 @@ export default class Dropdown extends Component {
   }
 
   _setMenuItem = (e) => {
+    const newValue = e.target.getAttribute('data');
     this.setState({
-      currItem: e.target.getAttribute('data'),
+      currItem: newValue,
       isActive: false
-    });
+    }, this.props.changeOption(this.props.id, newValue) );
     this.eleRef.current.blur();
   }
 

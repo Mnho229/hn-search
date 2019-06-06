@@ -17,6 +17,11 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    this._handleData();
+  }
+
+  _handleData() {
+    console.log(this.state);
     this._fetchData(this.state).then(data => {
       this.setState({
         feedList: data.hits,
@@ -73,14 +78,16 @@ class Main extends React.Component {
   }
 
   changeOptions = (optionName, value) => {
-    this.setState({
-      [optionName]: value
-    });
+    // this.setState({
+    //   [optionName]: value
+    // }, this._handleData() );
+    this.setState( (state) => {
+      return {[optionName]: value}
+    }, () => { this._handleData() } );
   }
 
   render() {
     console.log(this.state.feedList);
-    console.log('curr ', this.state);
     return (
       <div className="Main">
         <Nav />

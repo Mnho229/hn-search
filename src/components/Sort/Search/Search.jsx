@@ -12,7 +12,6 @@ class Search extends Component {
     return (
       <form className="form">
         <input placeholder="Search" id="hnSearch" className="c-nav__input" />
-        <span>By InsertMike</span>
       </form>
     );
   }

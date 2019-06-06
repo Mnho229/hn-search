@@ -9,21 +9,19 @@ class Sort extends Component {
     }
   }
 
-  handleProp = () => {
-    this.props.changeOption('sortType', 'Comments');
-  };
-
   render() {
     const resultTypes = ['Stories', 'Comments', 'All'];
     const popuOrDate = ['Popularity', 'Date'];
     const timeRanges = ['All Time', 'Last 24h', 'Past Week', 'Past Month', 'Past Year', 'Custom Range'];
 
-    console.log(this.props);
-
     return (
       <section className="c-sort">
-        <span>Search</span><Dropdown items={resultTypes} /><span> by </span><Dropdown items={popuOrDate} /><span> by </span><Dropdown items={timeRanges} />
-        <div onClick={this.handleProp}>testing func</div>
+        <span>Search</span>
+        <Dropdown id="sortType" items={resultTypes} changeOption={this.props.changeOption} />
+        <span> by </span>
+        <Dropdown id="sortBy" items={popuOrDate} changeOption={this.props.changeOption} />
+        <span> by </span>
+        <Dropdown id="sortDateRange" items={timeRanges} changeOption={this.props.changeOption} />
       </section>
     );
   }
