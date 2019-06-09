@@ -64,35 +64,33 @@ class Main extends React.Component {
     return result;
   }
 
-  //TODO: Test API CALLS
   _fetchData = async ( {sortType, sortBy, sortDateRange, sortQuery} ) => {
     const typeFilter = this._determineType(sortType);
     const dateFilter = this._determineRange(sortDateRange);
-    const searchFilter = typeof query !== "undefined" && sortQuery !== '' ? `&query=${sortQuery}` : '';
+    const searchFilter = typeof sortQuery !== "undefined" && sortQuery !== '' ? `&query=${sortQuery}` : '';
     const sortByFilter = sortBy === 'Popularity' ? 'search' : 'search_by_date';
 
     const url = `https://hn.algolia.com/api/v1/${sortByFilter}?tags=${typeFilter}${searchFilter}${dateFilter}&hitsPerPage=30`;
-
+    
     let res = await fetch(url);
     return res.json();
   }
 
   changeOptions = (optionName, value) => {
-    // this.setState({
-    //   [optionName]: value
-    // }, this._handleData() );
+    
     this.setState( (state) => {
       return {[optionName]: value}
     }, () => { this._handleData() } );
+
   }
 
   render() {
     console.log(this.state.feedList);
     return (
       <div className="Main">
-        <Nav />
+        <Nav changeOption={this.changeOptions} />
         <Sort changeOption={this.changeOptions} />
-        <Feed list={this.state.feedList} />
+        <Feed query={this.state.sortQuery} list={this.state.feedList} />
       </div>
     );
   }

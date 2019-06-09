@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
 
 class Comment extends PureComponent {
-  constructor(props) {
-    super(props);
 
-  }
+  //Use arrow function in props field to add in arguments to parameters
+  _detectQuery(propName) {
+    //TODO
+    //REGEX to match in Text with query
+  };
 
   render() {
-    const { story_title, points, author, created_at_i, comment_text} = this.props;
+    const { story_title, author, created_at_i, comment_text} = this.props;
     const date = new Date(created_at_i * 1000).toLocaleDateString("en-US");
     //TODO: Format content of comment
     return (

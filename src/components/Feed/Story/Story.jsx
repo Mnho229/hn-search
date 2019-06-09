@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react';
 
 class Story extends PureComponent {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     const { title, url, points, author, created_at_i, num_comments, story_text } = this.props;

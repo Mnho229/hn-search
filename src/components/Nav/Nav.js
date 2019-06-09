@@ -16,10 +16,10 @@ class Nav extends Component {
       <nav className="c-nav">
         <ul className="c-nav__list">
           <li className="c-nav__home">
-            <a href="#"><img className="c-nav__logo" src={logo} alt="hn-logo" /></a>
+            <a href="/"><img className="c-nav__logo" src={logo} alt="hn-logo" /></a>
           </li>
           <li className="l-list-container c-nav__search">
-            <Search />
+            <Search changeSearch={this.props.changeOption} />
           </li>
           <li className="l-list-container c-nav__options">
             <img className="c-nav__gear" src={gear} alt="options" />

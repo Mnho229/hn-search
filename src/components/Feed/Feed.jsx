@@ -12,12 +12,20 @@ class Feed extends Component {
 
   _genStory(propsObj, counter) {
     return (
-      <li key={counter}> <Story {...propsObj} /> </li>
+      <li key={counter}>
+        <Story {...propsObj}
+          query={this.props.query}
+        />
+      </li>
     )
   }
   _genComment(propsObj, counter) {
     return (
-      <li key={counter}> <Comment {...propsObj} /> </li>
+      <li key={counter}>
+        <Comment {...propsObj}
+          query={this.props.query}
+        />
+      </li>
     )
   }
 
