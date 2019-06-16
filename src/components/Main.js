@@ -76,7 +76,7 @@ class Main extends React.Component {
     return res.json();
   }
 
-  //TODO: Add timeout for when query is modified
+  //TODO: Add timeout for when query is modified 
   changeOptions = (optionName, value) => {
     this.setState( (state) => {
       return {[optionName]: value}
