@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import reactStringReplace from 'react-string-replace';
 import detectQuery from '../../util/detect-query';
 
 class Comment extends PureComponent {
