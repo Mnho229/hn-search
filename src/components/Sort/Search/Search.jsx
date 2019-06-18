@@ -6,10 +6,18 @@ class Search extends Component {
     this.state = {
 
     }
+    this.timer = null;
   }
-
+  //add timeout for typing query
   handleChange = (e) => {
-    this.props.changeSearch('sortQuery', e.target.value);
+    if (this.timer !== null) {
+      window.clearTimeout(this.timer);
+    }
+    const newQuery = e.target.value;
+
+    this.timer = window.setTimeout(() => {
+      this.props.changeSearch('sortQuery', newQuery);  
+    }, 1000);
   }
 
   render() {
