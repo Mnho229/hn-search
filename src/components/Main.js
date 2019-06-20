@@ -70,7 +70,7 @@ class Main extends React.Component {
     const searchFilter = typeof sortQuery !== "undefined" && sortQuery !== '' ? `&query=${sortQuery}` : '';
     const sortByFilter = sortBy === 'Popularity' ? 'search' : 'search_by_date';
 
-    const url = `https://hn.algolia.com/api/v1/${sortByFilter}?tags=${typeFilter}${searchFilter}${dateFilter}&hitsPerPage=30`;
+    const url = `https://hn.algolia.com/api/v1/${sortByFilter}?tags=${typeFilter}${searchFilter}${dateFilter}&hitsPerPage=15`;
     
     let res = await fetch(url);
     return res.json();
