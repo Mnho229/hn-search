@@ -10,7 +10,7 @@ class Nav extends Component {
 
     }
   }
-
+  //Set up with react-router
   render() {
     return (
       <nav className="c-nav">
@@ -20,9 +20,6 @@ class Nav extends Component {
           </li>
           <li className="l-list-container c-nav__search">
             <Search changeSearch={this.props.changeOption} />
-          </li>
-          <li className="l-list-container c-nav__options">
-            <img className="c-nav__gear" src={gear} alt="options" />
           </li>
         </ul>
       </nav>

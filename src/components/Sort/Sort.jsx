@@ -12,7 +12,7 @@ class Sort extends Component {
   render() {
     const resultTypes = ['Stories', 'Comments', 'All'];
     const popuOrDate = ['Popularity', 'Date'];
-    const timeRanges = ['All Time', 'Last 24h', 'Past Week', 'Past Month', 'Past Year', 'Custom Range'];
+    const timeRanges = ['All Time', 'Last 24h', 'Past Week', 'Past Month', 'Past Year'];
 
     return (
       <section className="c-sort">
